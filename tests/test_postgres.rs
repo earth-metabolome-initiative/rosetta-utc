@@ -32,6 +32,14 @@ fn test_postgres_roundtrip() {
         diesel::sql_query("CREATE TEMPORARY TABLE test_table (id SERIAL PRIMARY KEY, created_at TIMESTAMPTZ NOT NULL)")
             .execute(conn)?;
         let now = TimestampUTC::now();
+        // Postgres has microsecond precision, so we must truncate nanoseconds for equality check to succeed.
+        let dt = now.as_ref();
+        let truncated = chrono::DateTime::from_timestamp(
+            dt.timestamp(),
+            dt.timestamp_subsec_micros() * 1000
+        ).unwrap();
+        let now = TimestampUTC::from(truncated);
+
         let entity = TestEntity {
             id: 1,
             created_at: now,
