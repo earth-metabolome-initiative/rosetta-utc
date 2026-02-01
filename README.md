@@ -36,7 +36,7 @@ Add this to your `Cargo.toml`. Select the features matching your database requir
 
 ```toml
 [dependencies]
-rosetta-utc = { version = "0.1", features = ["diesel", "postgres", "serde"] }
+rosetta-utc = { version = "0.1", features = ["diesel", "postgres", "sqlite", "serde"] }
 ```
 
 ### Example
