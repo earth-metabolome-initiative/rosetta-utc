@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 repository = "https://github.com/earth-metabolome-initiative/rosetta-utc"
 homepage = "https://github.com/earth-metabolome-initiative/rosetta-utc"
-keywords = ["utc", "diesel", "postgres", "sqlite", "timestamp", "chrono"]
+keywords = ["utc", "diesel", "postgres", "sqlite", "chrono"]
 categories = ["database", "date-and-time", "encoding"]
 
 [dependencies]
