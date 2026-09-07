@@ -175,12 +175,12 @@ mod tests {
     #[test]
     fn test_standard_traits() {
         let t1 = TimestampUTC::now();
-        let t2 = Clone::clone(&t1); // Clone
+        let t2 = t1; // Clone
         let t3 = t1; // Copy
 
         assert_eq!(t1, t2); // PartialEq
         assert_eq!(t1, t3); // PartialEq
-        assert!(t1 == t2); // Eq check implicitly
+        assert_eq!(t1, t2); // Eq check implicitly
 
         let mut set = HashSet::new();
         set.insert(t1); // Hash
